@@ -1,1 +1,93 @@
-main
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>祝24届考生都能有好成绩</title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <script>
+        let clickCount = 0;
+
+        function getRandomNumber() {
+            const min = 10;
+            const max = 50;
+            const randomNumber = Math.floor(Math.random() * ((max - min) / 5 + 1)) * 5 + min;
+            return randomNumber;
+    }
+
+        function displayRandomNumber() {
+            if (clickCount >= 50 && clickCount<70) {
+                const img = document.getElementById('btnImg');
+                img.hidden = true;
+                const randomNumberElement = document.getElementById('randomNumber');
+                randomNumberElement.innerText = "别做白日梦了，赶紧复习去吧";
+                randomNumberElement.style.fontSize = '2em'; // 设置大号字体
+                clickCount++;
+            } else if(clickCount>=70){
+                const randomNumber = getRandomNumber();
+                const randomNumberElement = document.getElementById('randomNumber');
+                randomNumberElement.innerText = `我在zju等你`;
+                clickCount++;
+            } else {
+                const randomNumber = getRandomNumber();
+                const randomNumberElement = document.getElementById('randomNumber');
+                randomNumberElement.innerText = `高考总分+ ${randomNumber} 分`;
+                clickCount++;
+            }
+        }
+
+        function show() {
+            const img = document.getElementById('btnImg');
+            img.hidden = false;
+        }
+        let mainsubject=0;
+        let choicesubject=0;
+        function getsubject(subjectnum){
+            if(subjectnum===1){
+                mainsubject++;
+            }
+            else{
+                choicesubject++;
+            }
+            return choicesubject+mainsubject;
+        }
+        function betterscore(){
+            let betterscore=0;
+            let min=150;
+            let max=130;
+            betterscore=mainsubject*(Math.random() * (150-130) + 130)+choicesubject*(Math.random() * (100 - 95) + 95);
+            alert(`高考总分是 ${betterscore} 分`);
+            document.getElementById('submitButton1').innerHTML=`高考总分是 ${betterscore} 分`;
+        }
+
+    </script>
+</head>
+<body>
+    <div id="box">
+        <h1>同学还考几门啊，点击按钮看看能考多少吧</h1><br>
+        <button id="submitButton"  onclick="getsubject(1)">语文</button>
+        <button id="submitButton"  onclick="getsubject(1)">数学</button>
+        <button id="submitButton"  onclick="getsubject(1)">英语</button>
+        <button id="submitButton"  onclick="getsubject(2)">物理</button>
+        <button id="submitButton"  onclick="getsubject(2)">化学</button>
+        <button id="submitButton"  onclick="getsubject(2)">生物</button>
+        <button id="submitButton"  onclick="getsubject(2)">政治</button>
+        <button id="submitButton"  onclick="getsubject(2)">历史</button>
+        <button id="submitButton"  onclick="getsubject(2)">地理</button>
+        <button id="submitButton"  onclick="getsubject(2)">技术</button><br>
+        <button id ="submitButton1"  onclick="betterscore()">一键查询高考成绩</button>
+        <p>用完记得刷新页面哦</p>
+        <h1 id="tittle">点击电子木鱼助力高考</h1>
+        <div id="div" onmouseleave="show()">
+            <div id="randomNumber" class="text-center"></div>
+                <img id="btnImg" src="1.gif" onclick="displayRandomNumber()" alt="Click me" class="img-fluid" style="cursor: pointer;">
+            </div>
+            <div id="footer">
+                author:Slowist<br>
+                editor:JimmyEastBrook
+            </div>
+        </div>
+    </div>
+</body>
+</html>
