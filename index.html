@@ -24,6 +24,7 @@
             let min=150;
             let max=130;
             betterscore=Math.floor(mainsubject*(Math.random() * (150-130) + 130)+choicesubject*(Math.random() * (100 - 95) + 95));
+            //betterscore=Math.floor(3*(Math.random() * (150-130) + 130)+3*(Math.random() * (100 - 95) + 95));
             document.getElementById('submitButton1').innerHTML=`高考总分是 ${betterscore} 分`;
             return betterscore;
         }
@@ -69,7 +70,7 @@
                 const randomNumberElement = document.getElementById('randomNumber');
                 randomNumberElement.innerText = `高考总分+ ${randomNumber} 分`;
                 let betterscore_num=Number(betterscore());
-                betterscore_num+=randomNumber;
+                betterscore_num+=getRandomNumber();
                 document.getElementById('submitButton1').innerHTML=`高考总分是 ${betterscore_num} 分`;
                 clickCount++;
             }
