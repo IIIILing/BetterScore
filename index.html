@@ -56,7 +56,7 @@
             let betterscore=0;
             let min=150;
             let max=130;
-            betterscore=mainsubject*(Math.random() * (150-130) + 130)+choicesubject*(Math.random() * (100 - 95) + 95);
+            betterscore=Math.floor(mainsubject*(Math.random() * (150-130) + 130)+choicesubject*(Math.random() * (100 - 95) + 95));
             alert(`高考总分是 ${betterscore} 分`);
             document.getElementById('submitButton1').innerHTML=`高考总分是 ${betterscore} 分`;
         }
