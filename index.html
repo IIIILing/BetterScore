@@ -37,19 +37,34 @@
     }
 
         function displayRandomNumber() {
-            if (clickCount >= 50 && clickCount<70) {
+            if (clickCount >= 50 && clickCount<=61) {
                 const img = document.getElementById('btnImg');
                 img.hidden = true;
                 const randomNumberElement = document.getElementById('randomNumber');
                 randomNumberElement.innerText = "别做白日梦了，赶紧复习去吧";
                 randomNumberElement.style.fontSize = '2em'; // 设置大号字体
                 clickCount++;
-            } else if(clickCount>=70){
+            } else if(clickCount>=62 && clickCount <=65){
                 const randomNumber = getRandomNumber();
                 const randomNumberElement = document.getElementById('randomNumber');
                 randomNumberElement.innerText = `我在zju等你`;
+                
                 clickCount++;
-            } else {
+            } else if(clickCount > 65 && clickCount <=80){
+                const img = document.getElementById('btnImg');
+                const randomNumberElement = document.getElementById('randomNumber');
+                img.hidden = false;
+                const imageUrl = '3.png'; 
+                randomNumberElement.innerHTML = `<img src="${imageUrl}" alt="浙江大学欢迎你" />`;
+                clickCount++;
+            } else if(clickCount > 80){
+                const img = document.getElementById('btnImg');
+                const randomNumberElement = document.getElementById('randomNumber');
+                img.hidden = false;
+                const imageUrl = '3.jpg';
+                randomNumberElement.innerHTML = `<img src="${imageUrl}" alt="浙江大学欢迎你" />`;
+                clickCount++;
+            }else {
                 const randomNumber = getRandomNumber();
                 const randomNumberElement = document.getElementById('randomNumber');
                 randomNumberElement.innerText = `高考总分+ ${randomNumber} 分`;
