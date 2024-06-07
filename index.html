@@ -10,13 +10,14 @@
         let clickCount = 0;
         let mainsubject=0;
         let choicesubject=0;
-        function getsubject(subjectnum){
+        function getsubject(subjectnum,button){
             if(subjectnum===1){
                 mainsubject++;
             }
             else{
                 choicesubject++;
             }
+            button.style.backgroundColor= "yellow";
             return choicesubject+mainsubject;
         }
         function betterscore(){
@@ -87,16 +88,16 @@
 <body>
     <div id="box">
         <h1>环中的同学们，点击你们的选科，看看能考多少吧</h1><br>
-        <button id="submitButton"  onclick="getsubject(1)">语文</button>
-        <button id="submitButton"  onclick="getsubject(1)">数学</button>
-        <button id="submitButton"  onclick="getsubject(1)">英语</button>
-        <button id="submitButton"  onclick="getsubject(2)">物理</button>
-        <button id="submitButton"  onclick="getsubject(2)">化学</button>
-        <button id="submitButton"  onclick="getsubject(2)">生物</button>
-        <button id="submitButton"  onclick="getsubject(2)">政治</button>
-        <button id="submitButton"  onclick="getsubject(2)">历史</button>
-        <button id="submitButton"  onclick="getsubject(2)">地理</button>
-        <button id="submitButton"  onclick="getsubject(2)">技术</button><br>
+        <button id="submitButton"  onclick="getsubject(1,this)">语文</button>
+        <button id="submitButton"  onclick="getsubject(1,this)">数学</button>
+        <button id="submitButton"  onclick="getsubject(1,this)">英语</button>
+        <button id="submitButton"  onclick="getsubject(2,this)">物理</button>
+        <button id="submitButton"  onclick="getsubject(2,this)">化学</button>
+        <button id="submitButton"  onclick="getsubject(2,this)">生物</button>
+        <button id="submitButton"  onclick="getsubject(2,this)">政治</button>
+        <button id="submitButton"  onclick="getsubject(2,this)">历史</button>
+        <button id="submitButton"  onclick="getsubject(2,this)">地理</button>
+        <button id="submitButton"  onclick="getsubject(2,this)">技术</button><br>
         <button id ="submitButton1"  onclick="betterscore()">一键查询高考成绩</button>
         <p>用完记得刷新页面哦</p>
         <h1 id="tittle">点击电子木鱼助力高考</h1>
