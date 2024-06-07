@@ -8,6 +8,26 @@
     <link rel="stylesheet" type="text/css" href="main.css">
     <script>
         let clickCount = 0;
+        let mainsubject=0;
+        let choicesubject=0;
+        function getsubject(subjectnum){
+            if(subjectnum===1){
+                mainsubject++;
+            }
+            else{
+                choicesubject++;
+            }
+            return choicesubject+mainsubject;
+        }
+        function betterscore(){
+            let betterscore=0;
+            let min=150;
+            let max=130;
+            betterscore=Math.floor(mainsubject*(Math.random() * (150-130) + 130)+choicesubject*(Math.random() * (100 - 95) + 95));
+            document.getElementById('submitButton1').innerHTML=`高考总分是 ${betterscore} 分`;
+            return betterscore;
+        }
+
 
         function getRandomNumber() {
             const min = 10;
@@ -33,6 +53,9 @@
                 const randomNumber = getRandomNumber();
                 const randomNumberElement = document.getElementById('randomNumber');
                 randomNumberElement.innerText = `高考总分+ ${randomNumber} 分`;
+                let betterscore_num=Number(betterscore());
+                betterscore_num+=randomNumber;
+                document.getElementById('submitButton1').innerHTML=`高考总分是 ${betterscore_num} 分`;
                 clickCount++;
             }
         }
@@ -41,26 +64,6 @@
             const img = document.getElementById('btnImg');
             img.hidden = false;
         }
-        let mainsubject=0;
-        let choicesubject=0;
-        function getsubject(subjectnum){
-            if(subjectnum===1){
-                mainsubject++;
-            }
-            else{
-                choicesubject++;
-            }
-            return choicesubject+mainsubject;
-        }
-        function betterscore(){
-            let betterscore=0;
-            let min=150;
-            let max=130;
-            betterscore=Math.floor(mainsubject*(Math.random() * (150-130) + 130)+choicesubject*(Math.random() * (100 - 95) + 95));
-            alert(`高考总分是 ${betterscore} 分`);
-            document.getElementById('submitButton1').innerHTML=`高考总分是 ${betterscore} 分`;
-        }
-
     </script>
 </head>
 <body>
